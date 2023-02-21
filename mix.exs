@@ -25,11 +25,10 @@ defmodule Quack.MixProject do
 
   defp deps do
     [
-      {:tesla, "~> 1.2.0"},
-      {:credo, "~> 0.10.2", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.10.2", only: [:test, :dev]},
-      {:poison, ">= 1.0.0"},
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:httpoison, "~> 1.8"},
+      {:excoveralls, "~> 0.10.6", only: [:test, :dev]},
+      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:jason, "~> 1.4"}
     ]
   end
 

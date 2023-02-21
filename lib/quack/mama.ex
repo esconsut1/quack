@@ -27,7 +27,7 @@ defmodule Quack.Mama do
   def handle_cast({:send, event}, state) do
     event
     |> Formatter.create_message()
-    |> Poison.encode!()
+    |> Jason.encode!()
     |> Duckling.quack()
 
     {:noreply, state}

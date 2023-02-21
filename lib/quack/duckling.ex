@@ -25,7 +25,7 @@ defmodule Quack.Duckling do
   @doc false
   @impl true
   def handle_cast({:send, event}, url) do
-    Messenger.send(url, event)
+    Messenger.post(url, event)
 
     {:noreply, url}
   end

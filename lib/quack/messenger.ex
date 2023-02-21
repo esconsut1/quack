@@ -1,13 +1,12 @@
 defmodule Quack.Messenger do
   @moduledoc false
-  use Tesla
+  use HTTPoison.Base
 
-  plug(Tesla.Middleware.Headers, [{"content-type", "application/json"}])
+  def process_request_headers(headers) when is_map(headers) do
+    Enum.into(headers, []) |> process_request_headers()
+  end
 
-  @doc """
-  Function to send message to slack webhook
-  """
-  def send(url, msg) do
-    post(url, msg)
+  def process_request_headers(headers) when is_list(headers) do
+    [{"content-type", "application/json"} | headers] |> Enum.uniq()
   end
 end
