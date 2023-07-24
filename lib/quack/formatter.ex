@@ -134,5 +134,6 @@ defmodule Quack.Formatter do
   defp get_colour(:debug), do: "#9215E8"
   defp get_colour(:info), do: "#00B4FF"
   defp get_colour(:warn), do: "#E8BD08"
+  defp get_colour(:warning), do: "#E8BD08"
   defp get_colour(:error), do: "#FF3B0A"
 end
