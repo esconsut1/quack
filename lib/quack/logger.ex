@@ -59,8 +59,13 @@ defmodule Quack.Logger do
   defp valid_priority(_incoming_level, nil), do: true
 
   defp valid_priority(incoming_level, base_level) do
+    incoming_level = convert_warning(incoming_level)
+    base_level = convert_warning(base_level)
     Logger.compare_levels(incoming_level, base_level) != :lt
   end
+
+  defp convert_warning(:warn), do: :warning
+  defp convert_warning(other), do: other
 
   # Function to configure the initial application state when the user specifies
   # the desired level in init/2
