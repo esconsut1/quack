@@ -72,10 +72,7 @@ defmodule Quack.Logger do
   defp configure(level) do
     meta = Application.get_env(:quack, :meta)
 
-    %{
-      level: level,
-      metadata: meta
-    }
+    %{level: level, metadata: meta}
   end
 
   # Function to configure the initial application state when init/1 is called
@@ -83,10 +80,7 @@ defmodule Quack.Logger do
     meta = Application.get_env(:quack, :meta)
     level = Application.get_env(:quack, :level)
 
-    %{
-      level: level,
-      metadata: meta
-    }
+    %{level: level, metadata: meta}
   end
 
   # Function that takes and stringifies the given params from a keyword list
