@@ -25,7 +25,7 @@ defmodule Quack.MixProject do
 
   defp deps do
     [
-      {:httpoison, "~> 3.0"},
+      {:req, "~> 0.5"},
       {:excoveralls, "~> 0.18", only: [:test, :dev]},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:jason, "~> 1.4"}

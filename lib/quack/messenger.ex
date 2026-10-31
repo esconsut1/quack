@@ -1,12 +1,14 @@
 defmodule Quack.Messenger do
   @moduledoc false
-  use HTTPoison.Base
 
-  def process_request_headers(headers) when is_map(headers) do
-    Enum.into(headers, []) |> process_request_headers()
+  @doc false
+  def post(url, body) when is_binary(url) and is_binary(body) do
+    Req.post(url,
+      body: body,
+      headers: [{"content-type", "application/json"}],
+      decode_body: false
+    )
   end
 
-  def process_request_headers(headers) when is_list(headers) do
-    [{"content-type", "application/json"} | headers] |> Enum.uniq()
-  end
+  def post(_url, _body), do: :ok
 end
